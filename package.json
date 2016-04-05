@@ -5,6 +5,7 @@
     "start": "node server/server.js"
   },
   "dependencies": {
+    "bootstrap": "^3.3.6",
     "express": "^4.13.4",
     "jquery": "^2.2.2"
   }

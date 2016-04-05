@@ -1,3 +1,4 @@
+//set the background image
 var background = new Image();
 background.src = "/images/night.jpg"
 
@@ -8,68 +9,7 @@ function createCanvas(){
 
   var particles = [];
 
-  //a specific particle
-  var particle = {
-    speed: 6,
-    size: 3,
-    wind: {speed:1},
-    opacity: .1,
-  };
-
-  //the parameters for rain
-  var rain = {
-    speed: 6,
-    size: 3,
-    wind: {speed: 1},
-    opacity: .1,
-  }
-
-  //the parameters for snow
-  var snow = {
-    speed: 1,
-    size: 1,
-    wind: {speed: 1},
-    opacity: .8,
-  }
-
-  //array of our elements
-  var elements = [
-    {name:'snow', obj:snow},
-    {name:'rain', obj:rain}
-  ];
-
   //wind object
-  var wind = {
-    speed:1,
-    direction:'right'
-  }
-  $('#wind-faster').on('click', function(){
-    console.log('the wind direction is ', wind.direction);
-    if(wind.direction==="right"&&wind.speed<10){
-      wind.speed++;
-    }
-    if(wind.direction==='left'&&wind.speed>-10){
-      wind.speed--;
-    }
-  });
-  $('#wind-slower').on('click', function(){
-    if(wind.speed>0){
-      wind.speed--;
-    }
-    if(wind.speed<0){
-      wind.speed++;
-    }
-  });
-  $('#wind-direction').on('click', function(){
-    wind.speed*=-1;
-    console.log('the wind direction is ', wind.direction);
-    if(wind.direction==='right'){
-      wind.direction='left';
-      console.log('changed wind direction to ', wind.direction);
-    } else if (wind.direction==='left') {
-      wind.direction='right';
-    }
-  });
 
 
   var particleName='rain';
@@ -77,12 +17,12 @@ function createCanvas(){
   function maker(target){
     $('#'+target.name).on('click', function(){
         //console.log('snow');
-        if(target.name!==particleName){
-          particleName = target.name;
+        if(target.name!==particle.name){
+          particle.name = target.name;
           for (var key in particle){
             //console.log('they key is ', target.obj[key])
             //console.log('the key is ', snow[key]);
-            particle[key] = target.obj[key];
+            particle[key] = target[key];
             particles = [];
             precipitates();
           }
@@ -113,7 +53,7 @@ function createCanvas(){
       ctx.beginPath();
       ctx.arc(particles[i].x+=wind.speed, particles[i].y+=particles[i].size*particle.speed, particles[i].size, 0, Math.PI*2, false);
       ctx.fill();
-      //if the flake exits in the x or y position reset the flake's position for edge wrapping.
+      //implement edge wrapping
       if(particles[i].x > cW|| particles[i].y >cH){
         //reset the particles y position;
         yMoves = Math.floor(particles[i].y/(particles[i].size*particle.speed))+1;

@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-
-    <script   src="jquery/dist/jquery.min.js"></script>
+    <link rel = "stylesheet" href = "bootstrap/dist/css/bootstrap.min.css">
+    <link rel = "stylesheet" href = "stylesheets/style.css">
+    <script src ="jquery/dist/jquery.min.js"></script>
+    <script src = 'wind.js'></script>
+    <script src = 'particles.js'></script>
     <script src = 'main.js'></script>
   </head>
   <body>
-    <h1>Particle Simulator</h1>
-    <canvas id = "canvas" width="700" height="500"></canvas>
-    <h1 id="status"></h1>
-    <button id="snow">Snow</button>
-    <button id="rain">Rain</button>
-    <button id="wind-faster">Increase Wind</button>
-    <button id="wind-slower">Decrease Wind</button>
-    <button id="wind-direction">Change Wind Direction</button>
-    <button id="pause">Pause</button>
-    <button id="resume">Resume</button>
+    <div class = "container">
+      <div class = "row">
+        <div class = 'col-md-2'></div>
+        <div class = 'col-md-8 title'><h1>Particle Simulator</h1></div>
+        <div class = 'col-md-2'></div>
+      </div>
+      <div class = "row">
+        <div class = "col-md-2"></div>
+        <div class = 'col-md-8 center'><canvas id = "canvas" width="700" height="500"></canvas></div>
+        <div class = "col-md-2"></div>
+      </div>
+      <div class = "row">
+        <div class = "col-md-2"></div>
+        <div class = "col-md-8 center">
+          <div class="btn-group" role="group" aria-label="...">
+            <button type = "button" class = "btn btn-primary"id="snow" >Snow</button>
+            <button type = "button" class = "btn btn-primary" id="rain">Rain</button>
+            <button type = "button" class = "btn btn-primary" id="wind-faster">Increase Wind</button>
+            <button type = "button" class = "btn btn-primary" id="wind-slower">Decrease Wind</button>
+            <button type = "button" class = "btn btn-primary" id="wind-direction">Change Wind Direction</button>
+            <button type = "button" class = "btn btn-primary" id="pause">Pause</button>
+            <button type = "button" class = "btn btn-primary" id="resume">Resume</button>
+          </div>
+        </div>
+        <div class = "col-md-2"></div>
+      </div>
+
+    </div>
+
+
   </body>
 </html>
