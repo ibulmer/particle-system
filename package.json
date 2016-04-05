@@ -1,0 +1,11 @@
+{
+  "name": "packages-install",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "jquery": "^2.2.2"
+  }
+}
