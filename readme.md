@@ -1,6 +1,7 @@
 Welcome to the Particle Simulator. This particle system simulates weather. Currently it has rain and snow along with wind. Particles can be added in the particles.js file to extend the simulation.
 
-To start
+To start:
+
   From the root directory of the project:
   1. npm install
   2. node server/server.js
@@ -17,7 +18,7 @@ Particles are added to a particles array with random x and y positions up until 
 
 The particles are created in the particles.js file.
 Currently there is snow and rain.
-More particles can easily be added in this file. Simply create the particles characteristics and then add the particle to the elements array.
+More particle types can easily be added in this file. Simply create the particles characteristics and then add the particle to the elements array.
 The logic in main.js will automatically take care of movement, creating buttons to select the new particle, populating the simulation with the particle, and having weather events interact with the new particles.
 
 Weather events such as wind are found in wind.js. Additional weather events can be added in this file. Event handlers should be added in the document.ready function to ensure that they are correctly attached to the dom elements.
