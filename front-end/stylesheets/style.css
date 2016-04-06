@@ -6,7 +6,10 @@
   text-align: center;
 }
 
-/*#canvas {
-  width: 700px;
-  height: 500px;
-}*/
+#title {
+  font-size: 24px;
+}
+
+body {
+  background-color: #f2f2f2;
+}

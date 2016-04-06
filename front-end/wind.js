@@ -29,5 +29,8 @@ $(document).ready(function(){
       wind.direction='right';
     }
   });
+  $( "#title" ).fadeIn( "slow", function() {
+    // Animation complete
+  });
 
 });
