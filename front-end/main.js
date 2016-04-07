@@ -77,7 +77,7 @@ function createCanvas(){
   $('#pause').on('click', function(){
     //paused = true;
     if(paused){
-      $('#pause').text('Paue');
+      $('#pause').text('Pausee');
       paused = false;
       for (var i=0; i<elements.length; i++){
         maker(elements[i]);
