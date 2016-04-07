@@ -13,6 +13,9 @@ $(document).ready(function(){
       wind.speed--;
     }
   });
+  $("#wind-faster").mouseup(function(){
+    $(this).blur();
+  });
   $('#wind-slower').on('click', function(){
     if(wind.speed>0){
       wind.speed--;
@@ -21,6 +24,9 @@ $(document).ready(function(){
       wind.speed++;
     }
   });
+  $("#wind-slower").mouseup(function(){
+    $(this).blur();
+  });
   $('#wind-direction').on('click', function(){
     wind.speed*=-1;
     if(wind.direction==='right'){
@@ -28,6 +34,10 @@ $(document).ready(function(){
     } else if (wind.direction==='left') {
       wind.direction='right';
     }
+  });
+
+  $("#wind-direction").mouseup(function(){
+    $(this).blur();
   });
   $( "#title" ).fadeIn( "slow", function() {
     // Animation complete

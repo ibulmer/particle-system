@@ -11,7 +11,7 @@ function createCanvas(){
   var particles = [];
   //creates function factory to create click handlers to switch between elements
   function maker(target){
-    $('#'+target.name).on('click', function(){
+    $('#'+ target.name).on('click', function(){
         //console.log('snow');
         if(target.name!==particle.name){
           particle.name = target.name;
@@ -23,6 +23,9 @@ function createCanvas(){
             precipitates();
           }
         }
+    });
+    $("#" + target.name).mouseup(function(){
+      $(this).blur();
     });
   }
   //create a button for every element
@@ -72,27 +75,31 @@ function createCanvas(){
   var paused = false;
   //create button to pause the animation
   $('#pause').on('click', function(){
-    paused = true;
-    console.log('paused')
-    clearInterval(animateInterval);
-    function turnOff(target){
-      $(target).off();
-    }
-    for (var i=0; i<elements.length; i++){
-      var target = '#'+elements[i].name;
-      console.log('the target is ', target);
-      turnOff(target);
-    }
-  });
-  //create a button to resume the animation
-  $('#resume').on('click', function(){
+    //paused = true;
     if(paused){
+      $('#pause').text('Paue');
       paused = false;
       for (var i=0; i<elements.length; i++){
         maker(elements[i]);
       }
       animateInterval = setInterval(animate, 30);
+    } else {
+      $('#pause').text('Resume');
+      paused = true;
+      console.log('paused')
+      clearInterval(animateInterval);
+      function turnOff(target){
+        $(target).off();
+      }
+      for (var i=0; i<elements.length; i++){
+        var target = '#'+elements[i].name;
+        console.log('the target is ', target);
+        turnOff(target);
+      }
     }
+    $("#pause").mouseup(function(){
+      $(this).blur();
+    });
   });
 }
 $(document).ready(function(){
